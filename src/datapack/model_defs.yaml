@@ -1,0 +1,395 @@
+item_sprites:
+  $target: lunar_origins/models/item
+
+  kelp_carrot: lunar_origins:item/kelp_carrot
+  luna_glasses: lunar_origins:item/luna_glasses
+  gnap_glasses:
+    textures:
+      layer0: lunar_origins:item/gnap_glasses
+    overrides:
+      - predicate: {face: 1}
+        model: lunar_origins:item/gnap_glasses_face
+  gnap_glasses_face: lunar_origins:item/gnap_glasses_face
+  glasses_arm: lunar_origins:item/glasses_arm
+  glasses_arm_red: lunar_origins:item/glasses_arm_red
+  glasses_frame: lunar_origins:item/glasses_frame_base
+  glasses_frame_red: lunar_origins:item/glasses_frame_base_red
+  glasses_hinge: lunar_origins:item/glasses_hinge
+  hinge_part: lunar_origins:item/hinge_part
+  hinge_pin: lunar_origins:item/hinge_pin
+  hinge_spring: lunar_origins:item/precision_spring
+  glasses_lens: lunar_origins:item/glasses_lens
+  wire_coil: lunar_origins:item/wire_coil
+  crude_lens: lunar_origins:item/crude_lens
+  lens_cast: lunar_origins:item/lens_cast
+  aqua_gummy: lunar_origins:item/aqua_gummy
+  glimmering_aqua_gummy: lunar_origins:item/glimmering_aqua_gummy
+
+  # incomplete parts:
+  unfocused_lens: lunar_origins:item/glasses_lens
+  incomplete_lens: lunar_origins:item/glasses_lens
+  incomplete_hinge: lunar_origins:item/hinge_part
+  incomplete_frame: minecraft:item/eye_armor_trim_smithing_template
+  incomplete_cast: lunar_origins:item/incomplete_cast
+
+  goggles:
+    textures: {layer0: 'lunar_origins:item/goggles'}
+    overrides:
+      - predicate: {water_level: 1.0}
+        model: lunar_origins:item/goggles_flooded
+  goggles_flooded: lunar_origins:item/goggles_flooded
+
+  bowl_sealant: lunar_origins:item/bowl_sealant
+  bowl_super_sealant: lunar_origins:item/bowl_super_sealant
+
+  wopol_icon:
+    textures: {layer0: 'lunar_origins:item/wopol_icon'}
+    overrides:
+      - predicate: {custom_model_data: 1}
+        model: lunar_origins:item/wopol_icon_1
+
+  wopol_icon_1: lunar_origins:item/wopol_icon_1
+
+  gnaporeon_icon: lunar_origins:item/gnaporeon_icon
+
+
+  diving_helmet:
+    textures:
+      layer0: lunar_origins:item/diving_helmet
+    overrides:
+      - predicate: {water_level: 0.6}
+        model: lunar_origins:item/diving_helmet_filled
+
+  diving_helmet_filled: lunar_origins:item/diving_helmet_filled
+
+  glass_bowl:
+    parent: item/generated
+    textures:
+      layer0: lunar_origins:item/glass_bowl
+    overrides:
+    - predicate: {worn: 0, water_level: 0.01, damage: 0}
+      model: lunar_origins:item/glass_bowl_1
+    - predicate: {worn: 0, water_level: 0.2, damage: 0}
+      model: lunar_origins:item/glass_bowl_2
+    - predicate: {worn: 0, water_level: 0.4, damage: 0}
+      model: lunar_origins:item/glass_bowl_3
+    - predicate: {worn: 0, water_level: 0.6, damage: 0}
+      model: lunar_origins:item/glass_bowl_4
+    - predicate: {worn: 0, water_level: 0.8, damage: 0}
+      model: lunar_origins:item/fish_bowl
+
+    - predicate: {worn: 1, water_level: 0, damage: 0}
+      model: lunar_origins:item/glass_bowl_inverted
+    - predicate: {worn: 1, water_level: 0.01, damage: 0}
+      model: lunar_origins:item/glass_bowl_inverted_1
+    - predicate: {worn: 1, water_level: 0.2, damage: 0}
+      model: lunar_origins:item/glass_bowl_inverted_2
+    - predicate: {worn: 1, water_level: 0.4, damage: 0}
+      model: lunar_origins:item/glass_bowl_inverted_3
+    - predicate: {worn: 1, water_level: 0.6, damage: 0}
+      model: lunar_origins:item/glass_bowl_inverted_4
+    - predicate: {worn: 1, water_level: 0.8, damage: 0}
+      model: lunar_origins:item/fish_bowl_inverted
+
+    - predicate: {worn: 0, water_level: 0, damage: 0.5}
+      model: lunar_origins:item/glass_bowl_cracked
+    - predicate: {worn: 0, water_level: 0.01, damage: 0.5}
+      model: lunar_origins:item/glass_bowl_1_cracked
+    - predicate: {worn: 0, water_level: 0.2, damage: 0.5}
+      model: lunar_origins:item/glass_bowl_2_cracked
+    - predicate: {worn: 0, water_level: 0.4, damage: 0.5}
+      model: lunar_origins:item/glass_bowl_3_cracked
+    - predicate: {worn: 0, water_level: 0.6, damage: 0.5}
+      model: lunar_origins:item/glass_bowl_4_cracked
+    - predicate: {worn: 0, water_level: 0.8, damage: 0.5}
+      model: lunar_origins:item/fish_bowl_cracked
+
+    - predicate: {worn: 1, water_level: 0, damage: 0.5}
+      model: lunar_origins:item/glass_bowl_inverted_cracked
+    - predicate: {worn: 1, water_level: 0.01, damage: 0.5}
+      model: lunar_origins:item/glass_bowl_inverted_1_cracked
+    - predicate: {worn: 1, water_level: 0.2, damage: 0.5}
+      model: lunar_origins:item/glass_bowl_inverted_2_cracked
+    - predicate: {worn: 1, water_level: 0.4, damage: 0.5}
+      model: lunar_origins:item/glass_bowl_inverted_3_cracked
+    - predicate: {worn: 1, water_level: 0.6, damage: 0.5}
+      model: lunar_origins:item/glass_bowl_inverted_4_cracked
+    - predicate: {worn: 1, water_level: 0.8, damage: 0.5}
+      model: lunar_origins:item/fish_bowl_inverted_cracked
+
+  fish_bowl:
+    textures:
+      layer0: lunar_origins:item/glass_bowl
+      layer1: lunar_origins:item/fish_bowl_water
+    overrides:
+      - predicate: {worn: 1, damage: 0}
+        model: lunar_origins:item/fish_bowl_inverted
+      - predicate: {worn: 0, damage: 0.5}
+        model: lunar_origins:item/fish_bowl_cracked
+      - predicate: {worn: 1, damage: 0.5}
+        model: lunar_origins:item/fish_bowl_inverted_cracked
+
+  glass_bowl_1: 
+    textures:
+      layer0: lunar_origins:item/glass_bowl
+      layer1: lunar_origins:item/fish_bowl_water_1
+  glass_bowl_2: 
+    textures:
+      layer0: lunar_origins:item/glass_bowl
+      layer1: lunar_origins:item/fish_bowl_water_2
+  glass_bowl_3: 
+    textures:
+      layer0: lunar_origins:item/glass_bowl
+      layer1: lunar_origins:item/fish_bowl_water_3
+  glass_bowl_4: 
+    textures:
+      layer0: lunar_origins:item/glass_bowl
+      layer1: lunar_origins:item/fish_bowl_water_4
+  glass_bowl_inverted: lunar_origins:item/glass_bowl_inverted
+  glass_bowl_inverted_1: 
+    textures: 
+      layer0: lunar_origins:item/glass_bowl_inverted
+      layer1: lunar_origins:item/fish_bowl_water_inverted_1
+  glass_bowl_inverted_2: 
+    textures: 
+      layer0: lunar_origins:item/glass_bowl_inverted
+      layer1: lunar_origins:item/fish_bowl_water_inverted_2
+  glass_bowl_inverted_3: 
+    textures: 
+      layer0: lunar_origins:item/glass_bowl_inverted
+      layer1: lunar_origins:item/fish_bowl_water_inverted_3
+  glass_bowl_inverted_4: 
+    textures: 
+      layer0: lunar_origins:item/glass_bowl_inverted
+      layer1: lunar_origins:item/fish_bowl_water_inverted_4
+  fish_bowl_inverted:
+    textures:
+      layer0: lunar_origins:item/glass_bowl_inverted
+      layer1: lunar_origins:item/fish_bowl_water_inverted
+
+  glass_bowl_cracked:
+    textures:
+      layer0: lunar_origins:item/glass_bowl
+      layer1: lunar_origins:item/glass_bowl_crack
+
+  fish_bowl_cracked:
+    textures:
+      layer0: lunar_origins:item/glass_bowl
+      layer1: lunar_origins:item/fish_bowl_water
+      layer2: lunar_origins:item/glass_bowl_crack
+
+  glass_bowl_1_cracked:
+    textures:
+      layer0: lunar_origins:item/glass_bowl
+      layer1: lunar_origins:item/fish_bowl_water_1
+      layer2: lunar_origins:item/glass_bowl_crack
+  glass_bowl_2_cracked:
+    textures:
+      layer0: lunar_origins:item/glass_bowl
+      layer1: lunar_origins:item/fish_bowl_water_2
+      layer2: lunar_origins:item/glass_bowl_crack
+  glass_bowl_3_cracked:
+    textures:
+      layer0: lunar_origins:item/glass_bowl
+      layer1: lunar_origins:item/fish_bowl_water_3
+      layer2: lunar_origins:item/glass_bowl_crack
+  glass_bowl_4_cracked:
+    textures:
+      layer0: lunar_origins:item/glass_bowl
+      layer1: lunar_origins:item/fish_bowl_water_4
+      layer2: lunar_origins:item/glass_bowl_crack
+
+  glass_bowl_inverted_cracked:
+    textures:
+      layer0: lunar_origins:item/glass_bowl_inverted
+      layer1: lunar_origins:item/glass_bowl_crack_inverted
+
+  fish_bowl_inverted_cracked:
+    textures:
+      layer0: lunar_origins:item/glass_bowl_inverted
+      layer1: lunar_origins:item/fish_bowl_water_inverted
+      layer2: lunar_origins:item/glass_bowl_crack_inverted
+
+  glass_bowl_inverted_1_cracked:
+    textures:
+      layer0: lunar_origins:item/glass_bowl_inverted
+      layer1: lunar_origins:item/fish_bowl_water_inverted_1 
+      layer2: lunar_origins:item/glass_bowl_crack_inverted
+  glass_bowl_inverted_2_cracked:
+    textures:
+      layer0: lunar_origins:item/glass_bowl_inverted
+      layer1: lunar_origins:item/fish_bowl_water_inverted_2 
+      layer2: lunar_origins:item/glass_bowl_crack_inverted
+  glass_bowl_inverted_3_cracked:
+    textures:
+      layer0: lunar_origins:item/glass_bowl_inverted
+      layer1: lunar_origins:item/fish_bowl_water_inverted_3 
+      layer2: lunar_origins:item/glass_bowl_crack_inverted
+  glass_bowl_inverted_4_cracked:
+    textures:
+      layer0: lunar_origins:item/glass_bowl_inverted
+      layer1: lunar_origins:item/fish_bowl_water_inverted_4 
+      layer2: lunar_origins:item/glass_bowl_crack_inverted
+
+  amethyst_bowl:
+    parent: item/generated
+    textures:
+      layer0: lunar_origins:item/amethyst_bowl
+    overrides:
+    - predicate: {worn: 0, water_level: 0.01, damage: 0}
+      model: lunar_origins:item/amethyst_bowl_1
+    - predicate: {worn: 0, water_level: 0.2, damage: 0}
+      model: lunar_origins:item/amethyst_bowl_2
+    - predicate: {worn: 0, water_level: 0.4, damage: 0}
+      model: lunar_origins:item/amethyst_bowl_3
+    - predicate: {worn: 0, water_level: 0.6, damage: 0}
+      model: lunar_origins:item/amethyst_bowl_4
+    - predicate: {worn: 0, water_level: 0.8, damage: 0}
+      model: lunar_origins:item/amethyst_fish_bowl
+
+    - predicate: {worn: 1, water_level: 0, damage: 0}
+      model: lunar_origins:item/amethyst_bowl_inverted
+    - predicate: {worn: 1, water_level: 0.01, damage: 0}
+      model: lunar_origins:item/amethyst_bowl_inverted_1
+    - predicate: {worn: 1, water_level: 0.2, damage: 0}
+      model: lunar_origins:item/amethyst_bowl_inverted_2
+    - predicate: {worn: 1, water_level: 0.4, damage: 0}
+      model: lunar_origins:item/amethyst_bowl_inverted_3
+    - predicate: {worn: 1, water_level: 0.6, damage: 0}
+      model: lunar_origins:item/amethyst_bowl_inverted_4
+    - predicate: {worn: 1, water_level: 0.8, damage: 0}
+      model: lunar_origins:item/amethyst_fish_bowl_inverted
+
+    - predicate: {worn: 0, water_level: 0, damage: 0.5}
+      model: lunar_origins:item/amethyst_bowl_cracked
+    - predicate: {worn: 0, water_level: 0.01, damage: 0.5}
+      model: lunar_origins:item/amethyst_bowl_1_cracked
+    - predicate: {worn: 0, water_level: 0.2, damage: 0.5}
+      model: lunar_origins:item/amethyst_bowl_2_cracked
+    - predicate: {worn: 0, water_level: 0.4, damage: 0.5}
+      model: lunar_origins:item/amethyst_bowl_3_cracked
+    - predicate: {worn: 0, water_level: 0.6, damage: 0.5}
+      model: lunar_origins:item/amethyst_bowl_4_cracked
+    - predicate: {worn: 0, water_level: 0.8, damage: 0.5}
+      model: lunar_origins:item/amethyst_fish_bowl_cracked
+
+    - predicate: {worn: 1, water_level: 0, damage: 0.5}
+      model: lunar_origins:item/amethyst_bowl_inverted_cracked
+    - predicate: {worn: 1, water_level: 0.01, damage: 0.5}
+      model: lunar_origins:item/amethyst_bowl_inverted_1_cracked
+    - predicate: {worn: 1, water_level: 0.2, damage: 0.5}
+      model: lunar_origins:item/amethyst_bowl_inverted_2_cracked
+    - predicate: {worn: 1, water_level: 0.4, damage: 0.5}
+      model: lunar_origins:item/amethyst_bowl_inverted_3_cracked
+    - predicate: {worn: 1, water_level: 0.6, damage: 0.5}
+      model: lunar_origins:item/amethyst_bowl_inverted_4_cracked
+    - predicate: {worn: 1, water_level: 0.8, damage: 0.5}
+      model: lunar_origins:item/amethyst_fish_bowl_inverted_cracked
+
+  amethyst_fish_bowl:
+    textures:
+      layer0: lunar_origins:item/amethyst_bowl
+      layer1: lunar_origins:item/fish_bowl_water
+  amethyst_bowl_1: 
+    textures: 
+      layer0: lunar_origins:item/amethyst_bowl
+      layer1: lunar_origins:item/fish_bowl_water_1
+  amethyst_bowl_2: 
+    textures: 
+      layer0: lunar_origins:item/amethyst_bowl
+      layer1: lunar_origins:item/fish_bowl_water_2
+  amethyst_bowl_3: 
+    textures: 
+      layer0: lunar_origins:item/amethyst_bowl
+      layer1: lunar_origins:item/fish_bowl_water_3
+  amethyst_bowl_4: 
+    textures: 
+      layer0: lunar_origins:item/amethyst_bowl
+      layer1: lunar_origins:item/fish_bowl_water_4
+  amethyst_bowl_inverted: 
+    textures: 
+      layer0: lunar_origins:item/amethyst_bowl_inverted
+  amethyst_bowl_inverted_1: 
+    textures: 
+      layer0: lunar_origins:item/amethyst_bowl_inverted
+      layer1: lunar_origins:item/fish_bowl_water_inverted_1
+  amethyst_bowl_inverted_2: 
+    textures: 
+      layer0: lunar_origins:item/amethyst_bowl_inverted
+      layer1: lunar_origins:item/fish_bowl_water_inverted_2
+  amethyst_bowl_inverted_3: 
+    textures: 
+      layer0: lunar_origins:item/amethyst_bowl_inverted
+      layer1: lunar_origins:item/fish_bowl_water_inverted_3
+  amethyst_bowl_inverted_4: 
+    textures: 
+      layer0: lunar_origins:item/amethyst_bowl_inverted
+      layer1: lunar_origins:item/fish_bowl_water_inverted_4
+  amethyst_fish_bowl_inverted: 
+    textures: 
+      layer0: lunar_origins:item/amethyst_bowl_inverted
+      layer1: lunar_origins:item/fish_bowl_water_inverted
+
+  amethyst_bowl_cracked:
+    textures:
+      layer0: lunar_origins:item/amethyst_bowl
+      layer1: lunar_origins:item/amethyst_bowl_crack
+
+  amethyst_fish_bowl_cracked:
+    textures:
+      layer0: lunar_origins:item/amethyst_bowl
+      layer1: lunar_origins:item/fish_bowl_water
+      layer2: lunar_origins:item/amethyst_bowl_crack
+
+  amethyst_bowl_1_cracked:
+    textures:
+      layer0: lunar_origins:item/amethyst_bowl
+      layer1: lunar_origins:item/fish_bowl_water_1
+      layer2: lunar_origins:item/amethyst_bowl_crack
+  amethyst_bowl_2_cracked:
+    textures:
+      layer0: lunar_origins:item/amethyst_bowl
+      layer1: lunar_origins:item/fish_bowl_water_2
+      layer2: lunar_origins:item/amethyst_bowl_crack
+  amethyst_bowl_3_cracked:
+    textures:
+      layer0: lunar_origins:item/amethyst_bowl
+      layer1: lunar_origins:item/fish_bowl_water_3
+      layer2: lunar_origins:item/amethyst_bowl_crack
+  amethyst_bowl_4_cracked:
+    textures:
+      layer0: lunar_origins:item/amethyst_bowl
+      layer1: lunar_origins:item/fish_bowl_water_4
+      layer2: lunar_origins:item/amethyst_bowl_crack
+
+  amethyst_bowl_inverted_cracked:
+    textures:
+      layer0: lunar_origins:item/amethyst_bowl_inverted
+      layer1: lunar_origins:item/amethyst_bowl_crack_inverted
+
+  amethyst_fish_bowl_inverted_cracked:
+    textures:
+      layer0: lunar_origins:item/amethyst_bowl_inverted
+      layer1: lunar_origins:item/fish_bowl_water_inverted
+      layer2: lunar_origins:item/amethyst_bowl_crack_inverted
+
+  amethyst_bowl_inverted_1_cracked:
+    textures:
+      layer0: lunar_origins:item/amethyst_bowl_inverted
+      layer1: lunar_origins:item/fish_bowl_water_inverted_1
+      layer2: lunar_origins:item/amethyst_bowl_crack_inverted
+  amethyst_bowl_inverted_2_cracked:
+    textures:
+      layer0: lunar_origins:item/amethyst_bowl_inverted
+      layer1: lunar_origins:item/fish_bowl_water_inverted_2
+      layer2: lunar_origins:item/amethyst_bowl_crack_inverted
+  amethyst_bowl_inverted_3_cracked:
+    textures:
+      layer0: lunar_origins:item/amethyst_bowl_inverted
+      layer1: lunar_origins:item/fish_bowl_water_inverted_3
+      layer2: lunar_origins:item/amethyst_bowl_crack_inverted
+  amethyst_bowl_inverted_4_cracked:
+    textures:
+      layer0: lunar_origins:item/amethyst_bowl_inverted
+      layer1: lunar_origins:item/fish_bowl_water_inverted_4
+      layer2: lunar_origins:item/amethyst_bowl_crack_inverted

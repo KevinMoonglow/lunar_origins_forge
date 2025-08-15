@@ -1,0 +1,30 @@
+type: origins:multiple
+dizzy:
+  type: origins:stacking_status_effect
+  min_stacks: 0
+  max_stacks: 6
+  duration_per_stack: 40
+  tick_rate: 20
+  effects:
+    - effect: minecraft:nausea
+      is_ambient: true
+      show_particles: false
+      show_icon: false
+  condition:
+    type: origins:and
+    inverted: true
+    conditions:
+      - type: origins:living
+      - type: origins:power
+        power: lunar_origins:gnap_water_focus
+blurry:
+  type: origins:shader
+  toggleable: false
+  shader: lunar_origins:shaders/post/horzstrongblur.json
+  condition:
+    type: origins:and
+    inverted: true
+    conditions:
+      - type: origins:living
+      - type: origins:power
+        power: lunar_origins:gnap_water_focus

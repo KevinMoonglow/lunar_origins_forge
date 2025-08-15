@@ -1,0 +1,12 @@
+type: minecraft:crafting_shaped
+category: misc
+pattern:
+  - x x
+  - xxx
+key:
+  x: 
+    item: minecraft:glass
+result:
+  item: lunar_origins:glass_bowl
+  count: 1
+

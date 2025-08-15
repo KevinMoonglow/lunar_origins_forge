@@ -1,0 +1,8 @@
+type: minecraft:crafting_shapeless
+category: misc
+ingredients:
+  - item: minecraft:glow_ink_sac
+  - item: minecraft:honeycomb
+result:
+  item: lunar_origins:bowl_sealant
+  count: 1

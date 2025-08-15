@@ -1,0 +1,7 @@
+replace: false
+values:
+  - minecraft:glass
+  - id: mythicmetals:aquarium_chestplate
+    required: false
+  - id: mythicmetals:aquarium_leggings
+    required: false

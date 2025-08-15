@@ -1,0 +1,18 @@
+type: minecraft:crafting_shaped
+pattern:
+  - ' M '
+  - 'SGS'
+  - ' W '
+key:
+  M:
+    item: minecraft:glistering_melon_slice
+  G:
+    item: lunar_origins:aqua_gummy
+  S:
+    item: minecraft:glowstone_dust
+  W:
+    item: minecraft:water_bucket
+result:
+  item: lunar_origins:glimmering_aqua_gummy
+  count: 1
+

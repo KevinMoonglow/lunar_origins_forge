@@ -1,0 +1,14 @@
+type: minecraft:crafting_shaped
+category: misc
+pattern:
+  - ccc
+  - cGc
+  - xxx
+key:
+  c: {item: 'minecraft:copper_block'}
+  G: {item: 'minecraft:glass'}
+  x: {item: 'minecraft:iron_bars'}
+result:
+  item: lunar_origins:diving_helmet
+  count: 1
+

@@ -1,0 +1,15 @@
+type: origins:prevent_item_use
+name: Wearing Glass Bowl
+hidden: false
+item_condition:
+  type: origins:or
+  conditions:
+    - type: origins:food
+    - type: origins:ingredient
+      ingredient:
+        # All drinkable potions, including bottles of water are
+        # minecraft:potion. Splash and lingering potions have a different id,
+        # so you can still use those.
+        item: minecraft:potion
+condition:
+  type: origins:living

@@ -1,0 +1,21 @@
+replace: false
+values:
+  - minecraft:glass
+  - id: ad_astra:space_helmet
+    required: false
+  - id: ad_astra:netherite_space_helmet
+    required: false
+  - id: create:diving_helmet
+    required: false
+  - id: enva:water_glass_bowl
+    required: false
+  - id: enva:titanium_coated_water_glass_bowl
+    required: false
+  - id: lunar_origins:glass_bowl
+    required: false
+  - id: lunar_origins:amethyst_bowl
+    required: false
+  - id: lunar_origins:goggles
+    required: false
+  - id: lunar_origins:diving_helmet
+    required: false

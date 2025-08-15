@@ -1,0 +1,14 @@
+$$smithing_template:
+  type: minecraft:smithing_transform
+  template:
+    item: minecraft:amethyst_shard
+$$!smithing_template:
+  type: minecraft:smithing
+  category: misc
+base:
+  item: lunar_origins:glass_bowl
+addition:
+  item: minecraft:amethyst_shard
+result:
+  item: lunar_origins:amethyst_bowl
+

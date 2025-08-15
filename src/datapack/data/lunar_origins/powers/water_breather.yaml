@@ -1,0 +1,3 @@
+type: origins:simple
+hidden: true
+description: Empty power used to signify to mods that this is an Origin that breathes only in the water, but uses a power other than origins:water_breathing to implement that.

@@ -1,0 +1,14 @@
+type: minecraft:crafting_shaped
+category: misc
+pattern:
+  - "###"
+  - "#C#"
+  - "###"
+key:
+  '#':
+    item: minecraft:dried_kelp
+  'C':
+    item: minecraft:carrot
+result:
+  item: lunar_origins:kelp_carrot
+  count: 1

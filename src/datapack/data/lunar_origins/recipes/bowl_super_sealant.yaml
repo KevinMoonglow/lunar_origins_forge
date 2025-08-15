@@ -1,0 +1,9 @@
+type: minecraft:crafting_shapeless
+category: misc
+ingredients:
+  - item: lunar_origins:bowl_sealant
+  - item: minecraft:snowball
+  - item: minecraft:magma_cream
+result:
+  item: lunar_origins:bowl_super_sealant
+  count: 1

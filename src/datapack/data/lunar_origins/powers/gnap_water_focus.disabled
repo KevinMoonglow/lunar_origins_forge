@@ -1,0 +1,161 @@
+name: Water Focus
+
+type: origins:multiple
+description: >-
+  Your eyes are adapted for focusing underwater. You can see perfectly
+  underwater, but your vision is blurry out of the water.
+badges:
+  - type: origins:keybind
+    sprite: origins:textures/gui/badge/toggle.png
+    text: When underwater, toggle night vision with %s
+  - type: origins:tooltip
+    sprite: origins:textures/gui/badge/info.png
+    text: §cBlur effect requires Vignette disabled (or Fast graphics setting).
+
+night_vision:
+  type: origins:night_vision
+  condition:
+    type: origins:and
+    conditions:
+      - type: origins:power_active
+        power: '*:*_toggle'
+      - type: origins:submerged_in
+        fluid: water
+          
+toggle_key:
+  type: origins:active_self
+  entity_action:
+    type: origins:toggle
+    power: '*:*_toggle'
+  key: {key: key.origins.primary_active}
+  condition:
+    type: origins:submerged_in
+    fluid: water
+
+toggle:
+  type: origins:toggle
+  active_by_default: true
+  # Dummy keybind so we can trigger this toggle with something else.
+  key: {key: key.lunar_origins.none}
+  retain_state: true
+
+vision:
+  type: origins:shader
+  toggleable: false
+    
+  # Requires a resource pack. (Also bundled in the mod version)
+  # Players with the resource pack disabled will have no blur
+  # effect, making it like the `water_focus_off` flag. Probably
+  # bugged without render mods.
+  shader: lunar_origins:shaders/post/horzstrongblur.json
+
+  condition:
+    type: origins:and
+    conditions:
+      - type: origins:resource
+        resource: lunar_origins:gnap_water_focus_vision_timer
+        comparison: <=
+        compare_to: 0
+      - type: origins:or
+        inverted: true
+        conditions:
+          - type: origins:and
+            conditions:
+              - type: origins:submerged_in
+                fluid: minecraft:water
+              - type: origins:equipped_item
+                inverted: true
+                equipment_slot: head
+                item_condition:
+                  type: origins:ingredient
+                  ingredient:
+                    tag: lunar_origins:vision_water_seal
+          - type: origins:and
+            conditions:
+            - type: origins:equipped_item
+              equipment_slot: head
+              item_condition:
+                type: origins:ingredient
+                ingredient:
+                  tag: lunar_origins:aquatic_focus
+            - type: origins:equipped_item
+              inverted: true
+              equipment_slot: head
+              item_condition:
+                type: origins:ingredient
+                ingredient:
+                  item: lunar_origins:amethyst_bowl
+          - type: origins:equipped_item
+            equipment_slot: head
+            item_condition:
+              type: origins:nbt
+              nbt: "{waterEyeLevel: 1b}"
+          - type: origins:and
+            conditions:
+              - type: origins:in_rain
+              - type: origins:equipped_item
+                inverted: true
+                equipment_slot: head
+                item_condition:
+                  type: origins:ingredient
+                  ingredient:
+                    tag: lunar_origins:vision_water_seal
+          - type: origins:status_effect
+            effect: minecraft:conduit_power
+          - $$mod_version:
+              type: origins:status_effect
+              effect: lunar_origins:clear_vision
+          - type: origins:and
+            conditions:
+              - type: origins:living
+              - type: origins:power
+                power: lunar_origins:gnap_glasses
+
+vision_timer:
+  type: origins:resource
+  min: 0
+  max: 6000
+  start_value: 0
+  hud_render:
+    should_render:
+      $if:
+        flag: mod_version
+        if_value: false
+        else_value: true
+    sprite_location: origins:textures/gui/community/spiderkolo/resource_bar_02.png
+    bar_index: 7
+    condition:
+      type: origins:resource
+      resource: lunar_origins:gnap_water_focus_vision_timer
+      comparison: '<'
+      compare_to: 6000
+
+timer_recover_kelp_carrot:
+  type: origins:action_on_item_use
+  item_condition:
+    type: origins:ingredient
+    ingredient:
+      item: lunar_origins:kelp_carrot
+  entity_action:
+    type: origins:and
+    actions:
+      - type: origins:change_resource
+        resource: lunar_origins:gnap_water_focus_vision_timer
+        operation: add
+        change: 600
+
+timer_deplete:
+  type: origins:action_over_time
+  interval: 5
+  entity_action:
+    type: origins:change_resource
+    resource: lunar_origins:gnap_water_focus_vision_timer
+    operation: add
+    change: -5
+  $$mod_version:
+    condition:
+      type: origins:or
+      inverted: true
+      conditions:
+        type: origins:status_effect
+        effect: lunar_origins:clear_vision
