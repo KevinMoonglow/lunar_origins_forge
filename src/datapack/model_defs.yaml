@@ -3,6 +3,7 @@ item_sprites:
 
   kelp_carrot: lunar_origins:item/kelp_carrot
   luna_glasses: lunar_origins:item/luna_glasses
+  lunar_book: lunar_origins:item/lunar_book
   gnap_glasses:
     textures:
       layer0: lunar_origins:item/gnap_glasses

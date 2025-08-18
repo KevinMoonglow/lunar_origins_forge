@@ -7,9 +7,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
-public class BowlSealant extends Item {
-    public static final int SEALANT_AMOUNT = 12000;
-    public BowlSealant(Properties properties) {
+public class BowlSuperSealant extends Item {
+    public BowlSuperSealant(Properties properties) {
         super(properties);
     }
 
@@ -19,7 +18,7 @@ public class BowlSealant extends Item {
             ItemStack target = slot.getItem();
             Item targetItem = target.getItem();
             if (targetItem instanceof GlassBowl) {
-                boolean result = ((GlassBowl) targetItem).applySealant(target, SEALANT_AMOUNT);
+                boolean result = ((GlassBowl) targetItem).applySuperSealant(target);
                 if (result) {
                     stack.shrink(1);
                 }

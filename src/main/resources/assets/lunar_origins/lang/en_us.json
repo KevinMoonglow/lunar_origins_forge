@@ -60,5 +60,6 @@
   "item.minecraft.potion.effect.hydration": "Potion of Hydration",
   "item.minecraft.splash_potion.effect.hydration": "Splash Potion of Hydration",
 
-  "itemGroup.lunar_origins.lunar_origins": "Luna's Stuff"
+  "itemGroup.lunar_origins.lunar_origins": "Lunar Origins Items",
+  "itemGroup.lunar_origins.lunar_origins_ingredients": "Lunar Origins Crafting Ingredients"
 }

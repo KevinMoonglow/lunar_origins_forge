@@ -2,7 +2,7 @@ YAML_FILES:=$(shell fd -eyaml . data)
 JSON_FILES:=$(YAML_FILES:data/%.yaml=../main/resources/data/%.json)
 
 
-LUNAR_ORIGINS_DIRS:=lunar_origins/recipes minecraft/tags c/tags/items lunar_origins/powers lunar_origins/tags/items trinkets/entities trinkets/tags/items/head lunar_origins/tags/worldgen/biome
+LUNAR_ORIGINS_DIRS:=lunar_origins/recipes minecraft/tags c/tags/items lunar_origins/powers lunar_origins/tags/items trinkets/entities trinkets/tags/items/head lunar_origins/tags/worldgen/biome lunar_origins/curios/entities curios/tags/items
 
 REALDIRS:=$(addprefix ../main/resources/data/,$(LUNAR_ORIGINS_DIRS))
 

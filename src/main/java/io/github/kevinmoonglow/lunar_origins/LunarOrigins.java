@@ -1,9 +1,10 @@
 package io.github.kevinmoonglow.lunar_origins;
 
 import com.mojang.logging.LogUtils;
+import io.github.kevinmoonglow.lunar_origins.effect.LunarOriginsEffects;
+import io.github.kevinmoonglow.lunar_origins.item.LunarOriginsCreativeTabs;
 import io.github.kevinmoonglow.lunar_origins.item.LunarOriginsItems;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
+import io.github.kevinmoonglow.lunar_origins.potion.LunarOriginsPotions;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -27,13 +28,18 @@ public class LunarOrigins
     {
         IEventBus modEventBus = context.getModEventBus();
 
-        LunarOriginsItems.register(modEventBus);
-
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+
+        LunarOriginsCreativeTabs.register(modEventBus);
+        LunarOriginsItems.register(modEventBus);
+        LunarOriginsEffects.register(modEventBus);
+        LunarOriginsPotions.register(modEventBus);
+
+
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -42,15 +48,13 @@ public class LunarOrigins
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
+        LunarOriginsPotions.initPotionRecipes();
+        LunarOriginsItems.initItems();
     }
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-        if(event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
-            event.accept(LunarOriginsItems.BOWL_SEALANT);
-            event.accept(LunarOriginsItems.BOWL_SUPER_SEALANT);
-        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
