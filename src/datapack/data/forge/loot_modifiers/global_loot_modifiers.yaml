@@ -1,0 +1,9 @@
+replace: false
+entries:
+  - lunar_origins:add_books_to_buried_treasure
+  - lunar_origins:add_clear_vision_to_buried_treasure
+  - lunar_origins:add_clear_vision_to_shipwreck
+  - lunar_origins:add_sealant_to_bastion
+  - lunar_origins:add_sealant_to_desert_temple
+  - lunar_origins:add_sealant_to_shipwreck
+  

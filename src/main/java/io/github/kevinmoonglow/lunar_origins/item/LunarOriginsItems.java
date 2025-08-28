@@ -2,16 +2,21 @@ package io.github.kevinmoonglow.lunar_origins.item;
 
 import io.github.kevinmoonglow.lunar_origins.LunarOrigins;
 import io.github.kevinmoonglow.lunar_origins.material.ArmorMaterials;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class LunarOriginsItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, LunarOrigins.MOD_ID);
-
 
     // Food Items
     public static final RegistryObject<Item> KELP_CARROT = ITEMS.register("kelp_carrot",
@@ -39,15 +44,15 @@ public class LunarOriginsItems {
             () -> new AmethystGlassBowl(ArmorMaterials.AMETHYST_GLASS_BOWL, ArmorItem.Type.HELMET,
                     new Item.Properties().stacksTo(1), new int[]{15, 4, 2, 1, 0}));
     public static final RegistryObject<Item> GOGGLES = ITEMS.register("goggles",
-            () -> new ArmorItem(ArmorMaterials.GOGGLES, ArmorItem.Type.HELMET,
+            () -> new Goggles(ArmorMaterials.GOGGLES, ArmorItem.Type.HELMET,
                     new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> DIVING_HELMET = ITEMS.register("diving_helmet",
-            () -> new ArmorItem(ArmorMaterials.COPPER_DIVING_HELMET, ArmorItem.Type.HELMET,
-                    new Item.Properties().stacksTo(1)));
+            () -> new DivingHelmet(ArmorMaterials.COPPER_DIVING_HELMET, ArmorItem.Type.HELMET,
+                    new Item.Properties().stacksTo(1), new int[]{6, 4, 1, 0, 0}));
 
     // Glass Bowl Sealant
     public static final RegistryObject<Item> BOWL_SEALANT = ITEMS.register("bowl_sealant", () -> new BowlSealant(new Item.Properties()));
-    public static final RegistryObject<Item> BOWL_SUPER_SEALANT = ITEMS.register("bowl_super_sealant", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> BOWL_SUPER_SEALANT = ITEMS.register("bowl_super_sealant", () -> new BowlSuperSealant(new Item.Properties()));
 
     // Icons
     public static final RegistryObject<Item> LUNAR_BOOK = ITEMS.register("lunar_book",
@@ -95,10 +100,25 @@ public class LunarOriginsItems {
             () -> new Item(new Item.Properties()));
 
 
-
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
+
     public static void initItems() {
     }
+
+    @SubscribeEvent
+    public static void onDamage(LivingDamageEvent event) {
+        LivingEntity livingEntity = event.getEntity();
+        ItemStack head = livingEntity.getItemBySlot(EquipmentSlot.HEAD);
+        if (head != null && head.getItem() instanceof Goggles) {
+            CompoundTag nbt = head.getTag();
+            if (nbt != null) {
+                if (Math.random() < 0.1) {
+                    nbt.putBoolean("waterEyeLevel", livingEntity.isUnderWater());
+                }
+            }
+        }
+    }
 }
+

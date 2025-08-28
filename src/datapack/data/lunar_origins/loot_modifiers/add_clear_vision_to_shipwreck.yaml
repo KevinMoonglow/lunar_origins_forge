@@ -1,0 +1,7 @@
+type: lunar_origins:add_potion
+conditions:
+  - condition: "forge:loot_table_id"
+    loot_table_id: "chests/shipwreck_treasure"
+potion: lunar_origins:clear_vision
+count: 0
+max_count: 2

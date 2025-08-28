@@ -16,7 +16,7 @@ dizzy:
     conditions:
       - type: origins:living
       - type: origins:power
-        power: lunar_origins:gnap_water_focus
+        power: lunar_origins:gnaporeon/water_focus
 blurry:
   type: origins:shader
   toggleable: false
@@ -27,4 +27,4 @@ blurry:
     conditions:
       - type: origins:living
       - type: origins:power
-        power: lunar_origins:gnap_water_focus
+        power: lunar_origins:gnaporeon/water_focus

@@ -1,0 +1,11 @@
+type: lunar_origins:add_item
+conditions:
+  - condition: "forge:loot_table_id"
+    loot_table_id: "chests/shipwreck_treasure"
+item: lunar_origins:bowl_sealant
+count: 0
+max_count: 4
+chance: 1
+chance_range: 8
+
+

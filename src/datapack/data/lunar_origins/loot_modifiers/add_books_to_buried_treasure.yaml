@@ -1,0 +1,16 @@
+type: lunar_origins:add_item_choice
+conditions:
+  - condition: "forge:loot_table_id"
+    loot_table_id: "chests/buried_treasure"
+items:
+  - item: minecraft:enchanted_book
+    enchantments:
+      - enchantment: lunar_origins:clear_vision
+    weight: 1
+  - item: minecraft:enchanted_book
+    enchantments:
+      - enchantment: lunar_origins:molding
+    weight: 3
+  - item: minecraft:air
+    weight: 5
+

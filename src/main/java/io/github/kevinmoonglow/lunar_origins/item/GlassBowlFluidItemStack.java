@@ -27,7 +27,7 @@ public class GlassBowlFluidItemStack extends FluidHandlerItemStack {
         super.setFluid(fluid);
         CompoundTag nbt = container.getOrCreateTag();
         long waterLevel = nbt.getLong("waterLevel");
-        waterLevel = (waterLevel % 72)  + fluid.getAmount() * 72L;
+        waterLevel = (waterLevel % GlassBowl.WATER_PER_LOCAL_UNIT)  + (long) fluid.getAmount() * GlassBowl.WATER_PER_LOCAL_UNIT;
 
         nbt.putLong("waterLevel", waterLevel);
         nbt.putBoolean("hasWater", waterLevel > 0);

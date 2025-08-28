@@ -1,0 +1,8 @@
+type: lunar_origins:add_item_choice
+conditions:
+  - condition: "forge:loot_table_id"
+    loot_table_id: "chests/desert_pyramid"
+items:
+  - item: lunar_origins:bowl_sealant
+rolls: 0
+max_rolls: 6

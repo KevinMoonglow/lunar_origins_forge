@@ -1,0 +1,6 @@
+type: lunar_origins:add_item_choice
+conditions:
+  - condition: "forge:loot_table_id"
+    loot_table_id: "gameplay/fishing/junk"
+items:
+  - item: lunar_origins:glass_bowl

@@ -1,0 +1,11 @@
+name: Aquatic Miner
+description: Mining blocks while underwater fills them with water instead of air.
+type: origins:action_on_block_break
+block_action:
+  type: origins:set_block
+  block: minecraft:water
+only_when_harvested: false
+condition:
+  type: origins:submerged_in
+  fluid: minecraft:water
+

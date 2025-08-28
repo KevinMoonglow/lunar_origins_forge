@@ -1,7 +1,9 @@
 {
   "package": "io.github.kevinmoonglow.lunar_origins.mixin",
   "mixins": [],
-  "client": [],
+  "client": [
+    "GuiGraphicsModifier"
+  ],
   "server": [],
   "refmap": "lunar_origins.refmap.json",
   "compatibilityLevel": "JAVA_17",
