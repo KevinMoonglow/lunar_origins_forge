@@ -32,8 +32,7 @@ public class GnapGlassesRenderer implements ICurioRenderer {
         matrixStack.pushPose();
         LivingEntity entity = slotContext.entity();
         M model = renderLayerParent.getModel();
-        if(model instanceof HumanoidModel<?>) {
-            HumanoidModel<?> humanoidModel = (HumanoidModel) model;
+        if(model instanceof HumanoidModel<?> humanoidModel) {
             humanoidModel.head.translateAndRotate(matrixStack);
 
             matrixStack.translate(0, 0.3, -0.5 );

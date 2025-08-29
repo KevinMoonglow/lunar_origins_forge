@@ -1,6 +1,8 @@
 {
   "package": "io.github.kevinmoonglow.lunar_origins.mixin",
-  "mixins": [],
+  "mixins": [
+    "PatchApoliRestrictItemEvent"
+  ],
   "client": [
     "GuiGraphicsModifier"
   ],

@@ -1,5 +1,6 @@
 package io.github.kevinmoonglow.lunar_origins.item;
 import io.github.apace100.apoli.util.PowerGrantingItem;
+import io.github.edwinmindcraft.apoli.common.power.RestrictArmorPower;
 import io.github.edwinmindcraft.apoli.common.registry.ApoliCapabilities;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -116,13 +117,14 @@ public class GlassBowl extends ArmorItem {
     }
     public void setStackWaterLevelUnits(@NotNull CompoundTag nbt, long units) {
         if(units > MAX_WATER) units = MAX_WATER;
-        nbt.putLong("waterLevel", units);
-        nbt.putBoolean("hasWater", units > 0);
 
         CompoundTag fluidTag = new CompoundTag();
         FluidStack fluid = new FluidStack(Fluids.WATER, (int)(units/WATER_PER_LOCAL_UNIT));
         fluid.writeToNBT(fluidTag);
         nbt.put(GlassBowlFluidItemStack.FLUID_NBT_KEY, fluidTag);
+
+        nbt.putLong("waterLevel", units);
+        nbt.putBoolean("hasWater", units > 0);
     }
     public long getStackWaterLevelUnits(ItemStack stack) {
         CompoundTag nbt = stack.getTag();
@@ -155,6 +157,11 @@ public class GlassBowl extends ArmorItem {
             if (scooped.isSuccess()) {
                 return new InteractionResultHolder<>(InteractionResult.SUCCESS, scooped.result);
             }
+        }
+        // We're bypassing Apoli's armor restriction elsewhere with a mixin, so we have to manually enforce it
+        // here ourselves.
+        if(RestrictArmorPower.isForbidden(playerEntity, this.getEquipmentSlot(), itemStack)) {
+            return new InteractionResultHolder<>(InteractionResult.FAIL, itemStack);
         }
         return super.use(world, playerEntity, hand);
     }
@@ -207,8 +214,14 @@ public class GlassBowl extends ArmorItem {
             if (scooped.isSuccess()) {
                 player.setItemInHand(context.getHand(), scooped.getResult());
                 return InteractionResult.SUCCESS;
-            } else return InteractionResult.PASS;
+            }
         }
+        // We're bypassing Apoli's armor restriction elsewhere with a mixin, so we have to manually enforce it
+        // here ourselves.
+        if(RestrictArmorPower.isForbidden(player, this.getEquipmentSlot(), stack)) {
+            return InteractionResult.FAIL;
+        }
+
         return InteractionResult.PASS;
     }
 
@@ -372,8 +385,8 @@ public class GlassBowl extends ArmorItem {
             @NotNull ItemStack source, @Nullable CompoundTag sourceNbt,
             @NotNull ItemStack target, @Nullable CompoundTag targetNbt,
             @Nullable Long maxAmount) {
-        long sourceWaterLevel = sourceNbt != null ? getStackWaterLevelUnits(sourceNbt) : 0;
-        long targetWaterLevel = targetNbt != null ? getStackWaterLevelUnits(targetNbt) : 0;
+        long sourceWaterLevel = sourceNbt != null ? getStackWaterLevelUnits(sourceNbt) : getStackWaterLevelUnits(source);
+        long targetWaterLevel = targetNbt != null ? getStackWaterLevelUnits(targetNbt) : getStackWaterLevelUnits(target);
 
         long maxTransfer = Math.max(MAX_WATER - targetWaterLevel, 0);
         long fullTransfer = Math.min(maxTransfer, sourceWaterLevel);
