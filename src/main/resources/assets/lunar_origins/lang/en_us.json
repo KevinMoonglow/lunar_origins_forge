@@ -8,6 +8,12 @@
   "enchantment.lunar_origins.clear_vision.desc": "Helmets with this enchantment can help the wearer see clearly.",
   "enchantment.lunar_origins.molding": "Molding",
   "enchantment.lunar_origins.molding.desc": "May allow equipment to adjust to unusual body shapes.",
+
+  "block.lunar_origins.kelp_bed": "Kelp Bed",
+  "block.lunar_origins.bed.bad_place": "You may not rest now; the environment is too hostile",
+  "block.lunar_origins.bed.underwater": "You may not rest now; the bed is underwater",
+
+
   "item.lunar_origins.amethyst_bowl": "Amethyst Glass Bowl",
   "item.lunar_origins.amethyst_bowl.full": "Amethyst Fish Bowl",
   "item.lunar_origins.bowl_sealant": "Glass Bowl Sealant",
@@ -50,9 +56,6 @@
   "item.lunar_origins.incomplete_frame": "Incomplete Frame",
   "item.lunar_origins.incomplete_hinge": "Incomplete Hinge",
 
-
-
-
   "item.minecraft.lingering_potion.effect.clear_vision": "Lingering Potion of Clear Vision",
   "item.minecraft.potion.effect.clear_vision": "Potion of Clear Vision",
   "item.minecraft.splash_potion.effect.clear_vision": "Splash Potion of Clear Vision",
@@ -61,5 +64,7 @@
   "item.minecraft.splash_potion.effect.hydration": "Splash Potion of Hydration",
 
   "itemGroup.lunar_origins.lunar_origins": "Lunar Origins Items",
-  "itemGroup.lunar_origins.lunar_origins_ingredients": "Lunar Origins Crafting Ingredients"
+  "itemGroup.lunar_origins.lunar_origins_ingredients": "Lunar Origins Crafting Ingredients",
+
+  "power.lunar_origins.sleeping.breathless": "You may not rest now; you can't breathe here!"
 }

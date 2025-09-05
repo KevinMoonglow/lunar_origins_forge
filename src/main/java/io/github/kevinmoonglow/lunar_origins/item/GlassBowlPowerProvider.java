@@ -45,12 +45,12 @@ public class GlassBowlPowerProvider implements PowerGrantingItem, ICapabilityPro
 
 
     @Override
-    public @NotNull Collection<StackPowerUtil.StackPower> getPowers(@NotNull ItemStack itemStack, @NotNull EquipmentSlot equipmentSlot) {
+    public @NotNull Collection<StackPowerUtil.StackPower> getPowers(ItemStack itemStack, EquipmentSlot equipmentSlot) {
         return POWERS.stream().filter(stackPower -> stackPower.slot == equipmentSlot).toList();
     }
 
     @Override
-    public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
+    public @NotNull <T> LazyOptional<T> getCapability(Capability<T> cap, @Nullable Direction side) {
         return ApoliCapabilities.POWER_GRANTING_ITEM.orEmpty(cap, holder);
     }
 }

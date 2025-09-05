@@ -13,13 +13,13 @@ public class PotionBrewingRecipeMix implements IBrewingRecipe {
     @NotNull private final Item ingredient;
     @NotNull private final Potion output;
 
-    public PotionBrewingRecipeMix(@NotNull Potion input, @NotNull Item ingredient, @NotNull Potion output) {
+    public PotionBrewingRecipeMix(Potion input, Item ingredient, Potion output) {
         this.input = input;
         this.ingredient = ingredient;
         this.output = output;
     }
     @Override
-    public boolean isInput(@NotNull ItemStack stack) {
+    public boolean isInput(ItemStack stack) {
         if(stack.isEmpty()) return false;
         Item item = stack.getItem();
         Potion stackPotion = PotionUtils.getPotion(stack);
@@ -33,7 +33,7 @@ public class PotionBrewingRecipeMix implements IBrewingRecipe {
     }
 
     @Override
-    public @NotNull ItemStack getOutput(@NotNull ItemStack input, @NotNull ItemStack ingredient) {
+    public @NotNull ItemStack getOutput(ItemStack input, ItemStack ingredient) {
         if(!isIngredient(ingredient) || !isInput(input))
             return ItemStack.EMPTY;
 

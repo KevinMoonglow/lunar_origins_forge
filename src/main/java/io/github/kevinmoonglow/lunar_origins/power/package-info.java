@@ -1,0 +1,4 @@
+@ParametersAreNonnullByDefault
+package io.github.kevinmoonglow.lunar_origins.power;
+
+import javax.annotation.ParametersAreNonnullByDefault;

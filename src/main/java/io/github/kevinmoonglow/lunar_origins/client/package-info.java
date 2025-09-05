@@ -1,0 +1,4 @@
+@ParametersAreNonnullByDefault
+package io.github.kevinmoonglow.lunar_origins.client;
+
+import javax.annotation.ParametersAreNonnullByDefault;

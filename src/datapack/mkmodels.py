@@ -22,19 +22,28 @@ def printJsonPath(path: JsonPath):
 
     return "".join(textParts)
 
-def buildModel(name: str, data: JsonData, targetPath: Path, jsonPath: JsonPath):
+def buildModel(name: str, data: JsonData, targetPath: Path, jsonPath: JsonPath, modelType: str):
     if type(data) == str:
-        model: JsonData = {
-            'parent': 'item/generated',
-            'textures': {
-                'layer0': data,
+        if modelType == "blockstates":
+            model: JsonData = {
+                "variants": {
+                    "": {
+                        "model": data,
+                    }
+                }
             }
-        }
+        else:
+            model: JsonData = {
+                'parent': 'item/generated',
+                'textures': {
+                    'layer0': data,
+                }
+            }
         return model
 
     elif type(data) == dict:
         data = data.copy()
-        if 'parent' not in data:
+        if modelType == "item" and 'parent' not in data:
             data['parent'] = 'item/generated'
 
         return data
@@ -45,23 +54,12 @@ def buildModel(name: str, data: JsonData, targetPath: Path, jsonPath: JsonPath):
 
 
 
-
-
-
-
-
-
 def writeModel(name: str, data: JsonData, targetPath: Path):
     modelPath = targetPath / (name + ".json")
 
     with modelPath.open('w', encoding='utf-8') as fp:
         json.dump(data, fp=fp, indent=2)
         fp.write('\n')
-        
-
-    
-
-
 
 
 def processEntry(data: JsonData, rootPath: Path, jsonPath: JsonPath):
@@ -70,13 +68,15 @@ def processEntry(data: JsonData, rootPath: Path, jsonPath: JsonPath):
 
     pathDef = data['$target']
     assert type(pathDef) == str
+    modelType = data.get("$type", "item")
+
 
     targetPath = rootPath / pathDef
     targetPath.mkdir(parents=True, exist_ok=True)
 
     for k, v in data.items():
         if not k.startswith('$'):
-            model = buildModel(k, v, targetPath, jsonPath)
+            model = buildModel(k, v, targetPath, jsonPath, modelType)
             writeModel(k, model, targetPath)
 
 

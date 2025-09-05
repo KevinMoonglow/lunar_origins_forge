@@ -39,14 +39,14 @@ public class Goggles extends ArmorItem {
     }
 
     @Override
-    public boolean overrideOtherStackedOnMe(ItemStack stack, @NotNull ItemStack other, @NotNull Slot slot, @NotNull ClickAction action, Player player, @NotNull SlotAccess access) {
+    public boolean overrideOtherStackedOnMe(ItemStack stack, ItemStack other, Slot slot, ClickAction action, Player player, SlotAccess access) {
         CompoundTag nbt = stack.getOrCreateTag();
         nbt.putBoolean("waterEyeLevel", player.isUnderWater());
         return super.overrideOtherStackedOnMe(stack, other, slot, action, player, access);
     }
 
     @Override
-    public Component getName(@NotNull ItemStack stack) {
+    public @NotNull Component getName(ItemStack stack) {
         Component s = super.getName(stack);
         CompoundTag nbt = stack.getOrCreateTag();
         if(nbt.getBoolean("waterEyeLevel")) {

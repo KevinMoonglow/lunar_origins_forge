@@ -1,0 +1,4 @@
+@ParametersAreNonnullByDefault
+package io.github.kevinmoonglow.lunar_origins.enchantment;
+
+import javax.annotation.ParametersAreNonnullByDefault;

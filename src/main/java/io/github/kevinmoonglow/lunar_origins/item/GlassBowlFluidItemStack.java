@@ -12,7 +12,7 @@ public class GlassBowlFluidItemStack extends FluidHandlerItemStack {
      * @param container The container itemStack, data is stored on it directly as NBT.
      * @param capacity  The maximum capacity of this fluid tank.
      */
-    public GlassBowlFluidItemStack(@NotNull ItemStack container, int capacity) {
+    public GlassBowlFluidItemStack(ItemStack container, int capacity) {
         super(container, capacity);
     }
 
@@ -34,7 +34,7 @@ public class GlassBowlFluidItemStack extends FluidHandlerItemStack {
     }
 
     @Override
-    public boolean isFluidValid(int tank, @NotNull FluidStack stack) {
+    public boolean isFluidValid(int tank, FluidStack stack) {
         return stack.getFluid().isSame(Fluids.WATER);
     }
 

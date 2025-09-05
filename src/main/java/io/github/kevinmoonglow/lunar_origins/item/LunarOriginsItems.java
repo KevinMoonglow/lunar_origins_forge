@@ -1,6 +1,7 @@
 package io.github.kevinmoonglow.lunar_origins.item;
 
 import io.github.kevinmoonglow.lunar_origins.LunarOrigins;
+import io.github.kevinmoonglow.lunar_origins.block.LunarOriginsBlocks;
 import io.github.kevinmoonglow.lunar_origins.material.ArmorMaterials;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -99,6 +100,8 @@ public class LunarOriginsItems {
     public static final RegistryObject<Item> INCOMPLETE_HINGE = ITEMS.register("incomplete_hinge",
             () -> new Item(new Item.Properties()));
 
+    public static final RegistryObject<Item> KELP_BED_ITEM = ITEMS.register("kelp_bed",
+            () -> new KelpBedItem(LunarOriginsBlocks.KELP_BED_BLOCK.get(), new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
@@ -111,7 +114,7 @@ public class LunarOriginsItems {
     public static void onDamage(LivingDamageEvent event) {
         LivingEntity livingEntity = event.getEntity();
         ItemStack head = livingEntity.getItemBySlot(EquipmentSlot.HEAD);
-        if (head != null && head.getItem() instanceof Goggles) {
+        if (head.getItem() instanceof Goggles) {
             CompoundTag nbt = head.getTag();
             if (nbt != null) {
                 if (Math.random() < 0.1) {
@@ -119,6 +122,7 @@ public class LunarOriginsItems {
                 }
             }
         }
+
     }
 }
 

@@ -1,6 +1,8 @@
 package io.github.kevinmoonglow.lunar_origins;
 
 import com.mojang.logging.LogUtils;
+import io.github.kevinmoonglow.lunar_origins.block.LunarOriginsBlocks;
+import io.github.kevinmoonglow.lunar_origins.blockentity.LunarOriginsBlockEntities;
 import io.github.kevinmoonglow.lunar_origins.effect.LunarOriginsEffects;
 import io.github.kevinmoonglow.lunar_origins.enchantment.LunarOriginsEnchantments;
 import io.github.kevinmoonglow.lunar_origins.item.LunarOriginsCreativeTabs;
@@ -20,8 +22,11 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(LunarOrigins.MOD_ID)
+@ParametersAreNonnullByDefault
 public class LunarOrigins
 {
     public static final String MOD_ID = "lunar_origins";
@@ -41,12 +46,14 @@ public class LunarOrigins
         MinecraftForge.EVENT_BUS.register(LunarOriginsLoot.class);
 
         LunarOriginsCreativeTabs.register(modEventBus);
+        LunarOriginsBlocks.register(modEventBus);
         LunarOriginsItems.register(modEventBus);
         LunarOriginsEffects.register(modEventBus);
         LunarOriginsPotions.register(modEventBus);
         LunarOriginsPowers.register(modEventBus);
         LunarOriginsEnchantments.register(modEventBus);
         LunarOriginsLoot.register(modEventBus);
+        LunarOriginsBlockEntities.register(modEventBus);
 
 
         // Register the item to a creative tab

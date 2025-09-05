@@ -1,0 +1,13 @@
+type: minecraft:crafting_shaped
+pattern:
+  - 'GGG'
+  - 'KKK'
+key:
+  G:
+    item: minecraft:seagrass
+  K:
+    item: minecraft:kelp
+result:
+  item: lunar_origins:kelp_bed
+  count: 1
+

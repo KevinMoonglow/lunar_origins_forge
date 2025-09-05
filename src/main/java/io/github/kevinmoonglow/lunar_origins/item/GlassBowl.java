@@ -96,7 +96,7 @@ public class GlassBowl extends ArmorItem {
             private final LazyOptional<PowerGrantingItem> powerHandler =
                     LazyOptional.of(GlassBowlPowerProvider::new);
             @Override
-            public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
+            public @NotNull <T> LazyOptional<T> getCapability(Capability<T> cap, @Nullable Direction side) {
                 if(cap == ForgeCapabilities.FLUID_HANDLER_ITEM) {
                     return fluidHandler.cast();
                 }
@@ -115,7 +115,7 @@ public class GlassBowl extends ArmorItem {
         CompoundTag nbt = stack.getOrCreateTag();
         setStackWaterLevelUnits(nbt, units);
     }
-    public void setStackWaterLevelUnits(@NotNull CompoundTag nbt, long units) {
+    public void setStackWaterLevelUnits(CompoundTag nbt, long units) {
         if(units > MAX_WATER) units = MAX_WATER;
 
         CompoundTag fluidTag = new CompoundTag();
@@ -131,12 +131,12 @@ public class GlassBowl extends ArmorItem {
         if(nbt == null) return 0;
         return getStackWaterLevelUnits(nbt);
     }
-    public long getStackWaterLevelUnits(@NotNull CompoundTag nbt) {
+    public long getStackWaterLevelUnits(CompoundTag nbt) {
         return nbt.getLong("waterLevel");
     }
 
     @Override
-    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level world, Player playerEntity, @NotNull InteractionHand hand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(Level world, Player playerEntity, InteractionHand hand) {
         ItemStack itemStack = playerEntity.getItemInHand(hand).copy();
 
         LazyOptional<IFluidHandlerItem> optional = itemStack.getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM);
@@ -230,7 +230,7 @@ public class GlassBowl extends ArmorItem {
     }
 
     @Override
-    public void inventoryTick(@NotNull ItemStack stack, @NotNull Level world, @NotNull Entity entity, int slot, boolean selected) {
+    public void inventoryTick(ItemStack stack, Level world, Entity entity, int slot, boolean selected) {
         if(entity.isAlive() && slot == EquipmentSlot.HEAD.getIndex()) {
             LivingEntity p = (LivingEntity)entity;
 
@@ -345,7 +345,7 @@ public class GlassBowl extends ArmorItem {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag pIsAdvanced) {
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag pIsAdvanced) {
         super.appendHoverText(stack, level, components, pIsAdvanced);
         CompoundTag nbt = stack.getTag();
         if(nbt != null) {
@@ -382,8 +382,8 @@ public class GlassBowl extends ArmorItem {
      * @return The amount actually transferred (In internal units, not Forge Millibuckets)
      */
     private long pourToBowlStack(
-            @NotNull ItemStack source, @Nullable CompoundTag sourceNbt,
-            @NotNull ItemStack target, @Nullable CompoundTag targetNbt,
+            ItemStack source, @Nullable CompoundTag sourceNbt,
+            ItemStack target, @Nullable CompoundTag targetNbt,
             @Nullable Long maxAmount) {
         long sourceWaterLevel = sourceNbt != null ? getStackWaterLevelUnits(sourceNbt) : getStackWaterLevelUnits(source);
         long targetWaterLevel = targetNbt != null ? getStackWaterLevelUnits(targetNbt) : getStackWaterLevelUnits(target);
@@ -400,7 +400,7 @@ public class GlassBowl extends ArmorItem {
         return actualTransfer;
     }
     private long pourToBowlStack(
-            @NotNull ItemStack source, @NotNull ItemStack target, @Nullable Long maxAmount
+            ItemStack source, ItemStack target, @SuppressWarnings("SameParameterValue") @Nullable Long maxAmount
     ) {
         CompoundTag sourceNbt = source.getTag();
         CompoundTag targetNbt = target.getTag();
@@ -408,11 +408,11 @@ public class GlassBowl extends ArmorItem {
     }
     @SuppressWarnings("UnusedReturnValue")
     private long pourToBowlStack(
-            @NotNull ItemStack source, @Nullable CompoundTag sourceNbt,
-            @NotNull ItemStack target, @Nullable CompoundTag targetNbt) {
+            ItemStack source, @Nullable CompoundTag sourceNbt,
+            ItemStack target, @Nullable CompoundTag targetNbt) {
         return pourToBowlStack(source, sourceNbt, target, targetNbt, null);
     }
-    private long pourToBowlStack(@NotNull ItemStack source, @NotNull ItemStack target) {
+    private long pourToBowlStack(ItemStack source, ItemStack target) {
         return pourToBowlStack(source, target, null);
     }
 
@@ -461,7 +461,7 @@ public class GlassBowl extends ArmorItem {
     }
 
     @Override
-    public boolean overrideStackedOnOther(@NotNull ItemStack stack, @NotNull Slot slot, @NotNull ClickAction action, @NotNull Player player) {
+    public boolean overrideStackedOnOther(ItemStack stack, Slot slot, ClickAction action, Player player) {
         if(action == ClickAction.SECONDARY && slot.allowModification(player)) {
             ItemStack target  = slot.getItem();
             Item targetItem = target.getItem();

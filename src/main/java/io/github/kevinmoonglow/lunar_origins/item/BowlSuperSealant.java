@@ -5,7 +5,6 @@ import net.minecraft.world.inventory.ClickAction;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import org.jetbrains.annotations.NotNull;
 
 public class BowlSuperSealant extends Item {
     public BowlSuperSealant(Properties properties) {
@@ -13,7 +12,7 @@ public class BowlSuperSealant extends Item {
     }
 
     @Override
-    public boolean overrideStackedOnOther(@NotNull ItemStack stack, @NotNull Slot slot, @NotNull ClickAction clickType, @NotNull Player player) {
+    public boolean overrideStackedOnOther(ItemStack stack, Slot slot, ClickAction clickType, Player player) {
         if (clickType == ClickAction.SECONDARY && slot.allowModification(player)) {
             ItemStack target = slot.getItem();
             Item targetItem = target.getItem();

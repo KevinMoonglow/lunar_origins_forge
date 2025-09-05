@@ -97,7 +97,9 @@ public class LunarOriginsClient {
         });
 
         CuriosRendererRegistry.register(LunarOriginsItems.GNAP_GLASSES.get(), GnapGlassesRenderer::new);
+        //BlockEntityRenderers.register(LunarOriginsBlockEntities.KELP_BED.get(), KelpBedRenderer::new);
 
+        //ItemBlockRenderTypes.setRenderLayer(LunarOriginsBlocks.KELP_BED_BLOCK.get(), RenderType.cutout());
     }
 
     @SubscribeEvent

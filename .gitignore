@@ -33,3 +33,5 @@ forge*changelog.txt
 /src/main/resources/data/curios/tags/items/
 /src/main/resources/data/lunar_origins/loot_modifiers/
 /src/main/resources/data/forge/loot_modifiers/
+/src/main/resources/assets/lunar_origins/blockstates/
+/src/main/resources/data/lunar_origins/loot_tables/blocks/

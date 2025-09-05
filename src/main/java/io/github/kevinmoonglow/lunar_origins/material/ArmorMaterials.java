@@ -10,8 +10,10 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.Tags;
 import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.function.Supplier;
 
+@ParametersAreNonnullByDefault
 public enum ArmorMaterials implements ArmorMaterial {
     GLASSES("luna_glasses", 4, 25, SoundEvents.ARMOR_EQUIP_GOLD,
             0f, 0f, () -> Ingredient.of(Tags.Items.GLASS),

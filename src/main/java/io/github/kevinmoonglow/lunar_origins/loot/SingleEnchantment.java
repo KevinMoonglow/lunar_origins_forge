@@ -22,13 +22,10 @@ public class SingleEnchantment {
         this.level = level;
     }
     void applyEnchant(ItemStack itemStack) {
-        if(enchantment != null) {
-            if(itemStack.getItem() instanceof EnchantedBookItem) {
-                EnchantedBookItem.addEnchantment(itemStack, new EnchantmentInstance(enchantment, level));
-            }
-            else {
-                itemStack.enchant(enchantment, level);
-            }
+        if (itemStack.getItem() instanceof EnchantedBookItem) {
+            EnchantedBookItem.addEnchantment(itemStack, new EnchantmentInstance(enchantment, level));
+        } else {
+            itemStack.enchant(enchantment, level);
         }
     }
 }
