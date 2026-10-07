@@ -12,6 +12,7 @@
   "block.lunar_origins.kelp_bed": "Kelp Bed",
   "block.lunar_origins.bed.bad_place": "You may not rest now; the environment is too hostile",
   "block.lunar_origins.bed.underwater": "You may not rest now; the bed is underwater",
+  "block.lunar_origins.light_orb": "Aquatic Light",
 
 
   "item.lunar_origins.amethyst_bowl": "Amethyst Glass Bowl",
@@ -31,6 +32,9 @@
   "item.lunar_origins.kelp_carrot": "Kelp-wrapped Carrot",
   "item.lunar_origins.aqua_gummy": "Aqua Gummy",
   "item.lunar_origins.glimmering_aqua_gummy": "Glimmering Aqua Gummy",
+  "item.lunar_origins.glow": "Glowing Energy",
+  "item.lunar_origins.glow.tooltip.1": "A strange wispy glow that",
+  "item.lunar_origins.glow.tooltip.2": "seems to evade your grasp.",
 
   "item.lunar_origins.luna_glasses": "Luna's Glasses",
   "item.lunar_origins.gnap_glasses": "Gnap's Glasses",
@@ -66,5 +70,9 @@
   "itemGroup.lunar_origins.lunar_origins": "Lunar Origins Items",
   "itemGroup.lunar_origins.lunar_origins_ingredients": "Lunar Origins Crafting Ingredients",
 
-  "power.lunar_origins.sleeping.breathless": "You may not rest now; you can't breathe here!"
+  "power.lunar_origins.wopol/no_sleeping_in_dry_bed.cant_sleep": "You may not rest now; you can't breathe here",
+  "power.lunar_origins.wopol/create_light.name": "Aquatic Light",
+  "power.lunar_origins.wopol/create_light.description": "Create a small light underwater.",
+  "power.lunar_origins.wopol/glow.name": "Glow",
+  "power.lunar_origins.wopol/glow.description": "Luminous energy that allows you to create light sources."
 }

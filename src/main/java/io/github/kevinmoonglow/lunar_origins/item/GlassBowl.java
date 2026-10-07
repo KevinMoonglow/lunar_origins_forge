@@ -512,5 +512,11 @@ public class GlassBowl extends ArmorItem {
         return super.overrideOtherStackedOnMe(stack, other, slot, action, player, access);
     }
 
+    @Override
+    public void onCraftedBy(ItemStack pStack, Level pLevel, Player pPlayer) {
+        if(pPlayer.isUnderWater()) {
+            setStackWaterLevelUnits(pStack, MAX_WATER);
+        }
+    }
 }
 

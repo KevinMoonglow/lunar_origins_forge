@@ -37,7 +37,7 @@ public class PatchApoliRestrictItemEvent {
             remap = false
     )
     private static void fixArmorItemsWithRightClickAgainstBlockBehavior(PlayerInteractEvent.RightClickBlock event, CallbackInfo ci) {
-        // As explained above with block interactions.
+        // As explained above but with block interactions.
         if(event.getItemStack().getItem() instanceof GlassBowl)
             ci.cancel();
     }

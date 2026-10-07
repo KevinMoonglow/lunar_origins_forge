@@ -195,9 +195,9 @@ public class KelpBedBlock extends HorizontalDirectionalBlock implements LiquidBl
         super.setPlacedBy(pLevel, pPos, pState, pPlacer, pStack);
         if (!pLevel.isClientSide) {
             BlockPos blockPos = pPos.relative(pState.getValue(FACING));
-            pLevel.setBlock(blockPos, pState.setValue(PART, BedPart.HEAD), 3);
+            pLevel.setBlock(blockPos, pState.setValue(PART, BedPart.HEAD), Block.UPDATE_ALL);
             pLevel.blockUpdated(pPos, Blocks.AIR);
-            pState.updateIndirectNeighbourShapes(pLevel, pPos, 3);
+            pState.updateIndirectNeighbourShapes(pLevel, pPos, Block.UPDATE_ALL);
         }
     }
 

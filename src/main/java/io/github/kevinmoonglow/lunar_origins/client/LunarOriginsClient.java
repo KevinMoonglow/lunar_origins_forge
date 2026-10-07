@@ -1,25 +1,39 @@
 package io.github.kevinmoonglow.lunar_origins.client;
 
 
+import com.mojang.datafixers.util.Either;
+import io.github.edwinmindcraft.apoli.api.component.IPowerContainer;
 import io.github.kevinmoonglow.lunar_origins.LunarOrigins;
-import io.github.kevinmoonglow.lunar_origins.item.AmethystGlassBowl;
-import io.github.kevinmoonglow.lunar_origins.item.DivingHelmet;
-import io.github.kevinmoonglow.lunar_origins.item.GlassBowl;
-import io.github.kevinmoonglow.lunar_origins.item.LunarOriginsItems;
+import io.github.kevinmoonglow.lunar_origins.entity.LunarOriginsEntities;
+import io.github.kevinmoonglow.lunar_origins.item.*;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.FormattedText;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.tooltip.TooltipComponent;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
+import net.minecraftforge.client.event.RenderTooltipEvent;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegisterEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 import top.theillusivec4.curios.api.type.capability.ICuriosItemHandler;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.function.Predicate;
 
 @Mod.EventBusSubscriber(modid = LunarOrigins.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -97,7 +111,7 @@ public class LunarOriginsClient {
         });
 
         CuriosRendererRegistry.register(LunarOriginsItems.GNAP_GLASSES.get(), GnapGlassesRenderer::new);
-        //BlockEntityRenderers.register(LunarOriginsBlockEntities.KELP_BED.get(), KelpBedRenderer::new);
+        EntityRenderers.register(LunarOriginsEntities.GLOW_ITEM_ENTITY.get(), GlowItemRenderer::new);
 
         //ItemBlockRenderTypes.setRenderLayer(LunarOriginsBlocks.KELP_BED_BLOCK.get(), RenderType.cutout());
     }
@@ -106,6 +120,8 @@ public class LunarOriginsClient {
     public static void registerOverlays(RegisterGuiOverlaysEvent event) {
         event.registerBelowAll("glass_helmet", GlassBowlOverlay.GLASS_BOWL_SCREEN_OVERLAY);
     }
+
+
 
 
 

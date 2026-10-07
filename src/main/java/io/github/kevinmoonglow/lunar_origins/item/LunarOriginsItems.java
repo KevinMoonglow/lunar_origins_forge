@@ -1,12 +1,14 @@
 package io.github.kevinmoonglow.lunar_origins.item;
 
 import io.github.kevinmoonglow.lunar_origins.LunarOrigins;
+import io.github.kevinmoonglow.lunar_origins.block.LightOrbBlock;
 import io.github.kevinmoonglow.lunar_origins.block.LunarOriginsBlocks;
 import io.github.kevinmoonglow.lunar_origins.material.ArmorMaterials;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
@@ -102,6 +104,14 @@ public class LunarOriginsItems {
 
     public static final RegistryObject<Item> KELP_BED_ITEM = ITEMS.register("kelp_bed",
             () -> new KelpBedItem(LunarOriginsBlocks.KELP_BED_BLOCK.get(), new Item.Properties()));
+    public static final RegistryObject<Item> LIGHT_ORB_ITEM = ITEMS.register("light_orb",
+            () -> new BlockItem(LunarOriginsBlocks.LIGHT_ORB_BLOCK.get(), new Item.Properties()));
+
+
+
+    public static final RegistryObject<Item> GLOW_ITEM = ITEMS.register("glow",
+            () -> new GlowItem(new Item.Properties()));
+
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

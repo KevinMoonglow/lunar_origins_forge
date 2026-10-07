@@ -1,8 +1,10 @@
 type: minecraft:crafting_shapeless
 category: misc
 ingredients:
-  - item: minecraft:glow_ink_sac
-  - item: minecraft:honeycomb
+  - item: minecraft:slime_ball
+  - item: minecraft:clay_ball
+  - item: minecraft:redstone
+  - item: minecraft:cactus
 result:
   item: lunar_origins:bowl_sealant
   count: 1

@@ -28,6 +28,16 @@ public class LunarOriginsBlocks {
                     .isSuffocating((s, g, p) -> false)
                     .isViewBlocking((s, g, p) -> false)));
 
+    public static final RegistryObject<Block> LIGHT_ORB_BLOCK = BLOCKS.register("light_orb",
+            () -> new LightOrbBlock(BlockBehaviour.Properties.of()
+                    .strength(0.0f)
+                    .pushReaction(PushReaction.DESTROY)
+                    .isSuffocating((s, g, p) -> false)
+                    .isViewBlocking((s, g, p) -> false)
+                    .sound(SoundType.STEM)
+                    .noCollission()
+                    .noParticlesOnBreak()
+            ));
 
 
 

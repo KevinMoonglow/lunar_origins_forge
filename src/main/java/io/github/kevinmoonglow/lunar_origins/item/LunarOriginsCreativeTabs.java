@@ -28,6 +28,7 @@ public class LunarOriginsCreativeTabs {
                         pOutput.accept(LunarOriginsItems.AQUA_GUMMY.get());
                         pOutput.accept(LunarOriginsItems.GLIMMERING_AQUA_GUMMY.get());
                         pOutput.accept(LunarOriginsItems.KELP_BED_ITEM.get());
+                        pOutput.accept(LunarOriginsItems.LIGHT_ORB_ITEM.get());
 
                     })
                     .build());

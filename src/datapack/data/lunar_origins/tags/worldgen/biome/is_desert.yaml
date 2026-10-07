@@ -1,0 +1,6 @@
+values:
+  - id: '#c:is_desert'
+    required: false
+  - id: '#forge:is_desert'
+    required: false
+

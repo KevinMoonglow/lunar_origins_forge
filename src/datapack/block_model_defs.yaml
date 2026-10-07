@@ -2,6 +2,12 @@ block_models:
   $target: lunar_origins/models/block
   $type: block
 
+  light_orb:
+    ambientocclusion: false
+    render_type: cutout
+    #textures:
+    #  particle: minecraft:particle/glow
+
   kelp_bed:
     parent: minecraft:block/block
     render_type: cutout
@@ -56,6 +62,7 @@ block_states:
   $target: lunar_origins/blockstates
   $type: blockstates
 
+  light_orb: lunar_origins:block/light_orb
   kelp_bed:
     variants:
       "part=head,facing=north":

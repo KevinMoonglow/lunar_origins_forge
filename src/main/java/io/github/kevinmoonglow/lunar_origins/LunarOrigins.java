@@ -5,11 +5,14 @@ import io.github.kevinmoonglow.lunar_origins.block.LunarOriginsBlocks;
 import io.github.kevinmoonglow.lunar_origins.blockentity.LunarOriginsBlockEntities;
 import io.github.kevinmoonglow.lunar_origins.effect.LunarOriginsEffects;
 import io.github.kevinmoonglow.lunar_origins.enchantment.LunarOriginsEnchantments;
+import io.github.kevinmoonglow.lunar_origins.entity.LunarOriginsEntities;
 import io.github.kevinmoonglow.lunar_origins.item.LunarOriginsCreativeTabs;
 import io.github.kevinmoonglow.lunar_origins.item.LunarOriginsItems;
 import io.github.kevinmoonglow.lunar_origins.loot.LunarOriginsLoot;
 import io.github.kevinmoonglow.lunar_origins.potion.LunarOriginsPotions;
 import io.github.kevinmoonglow.lunar_origins.power.LunarOriginsPowers;
+import io.github.kevinmoonglow.lunar_origins.power.ModifyBreathingPower;
+import net.minecraft.core.registries.Registries;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -42,6 +45,7 @@ public class LunarOrigins
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(LunarOriginsPowers.class);
+        MinecraftForge.EVENT_BUS.register(ModifyBreathingPower.class);
         MinecraftForge.EVENT_BUS.register(LunarOriginsItems.class);
         MinecraftForge.EVENT_BUS.register(LunarOriginsLoot.class);
 
@@ -54,10 +58,7 @@ public class LunarOrigins
         LunarOriginsEnchantments.register(modEventBus);
         LunarOriginsLoot.register(modEventBus);
         LunarOriginsBlockEntities.register(modEventBus);
-
-
-        // Register the item to a creative tab
-        modEventBus.addListener(this::addCreative);
+        LunarOriginsEntities.register(modEventBus);
 
     }
 
@@ -67,15 +68,24 @@ public class LunarOrigins
         LunarOriginsItems.initItems();
     }
 
-    // Add the example block item to the building blocks tab
-    private void addCreative(BuildCreativeModeTabContentsEvent event)
-    {
-    }
-
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)
     {
+        /*
+        var biomes = event.getServer().registryAccess().registryOrThrow(Registries.BIOME);
+
+        LOGGER.info("== Biome Tags Loaded: ==");
+
+
+        biomes.getTags().forEach(tag -> {
+            LOGGER.info("{}", tag.getFirst().toString());
+            tag.getSecond().forEach(x -> {
+                LOGGER.info(":: {}", x.toString());
+            });
+        });
+        LOGGER.info("========================");
+         */
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
@@ -84,8 +94,8 @@ public class LunarOrigins
     {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
-
         {
         }
     }
+
 }

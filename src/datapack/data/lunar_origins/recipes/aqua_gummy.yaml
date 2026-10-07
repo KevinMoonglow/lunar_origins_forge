@@ -2,7 +2,6 @@ type: minecraft:crafting_shaped
 pattern:
   - ' C '
   - 'SOS'
-  - ' W '
 key:
   C:
     item: minecraft:cactus
@@ -10,8 +9,6 @@ key:
     item: minecraft:slime_ball
   S:
     item: minecraft:sugar
-  W:
-    item: minecraft:water_bucket
 result:
   item: lunar_origins:aqua_gummy
   count: 1

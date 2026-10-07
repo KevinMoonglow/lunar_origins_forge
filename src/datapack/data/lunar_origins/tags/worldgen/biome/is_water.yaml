@@ -1,0 +1,5 @@
+values:
+  - id: '#c:is_water'
+    required: false
+  - id: '#forge:is_water'
+    required: false
